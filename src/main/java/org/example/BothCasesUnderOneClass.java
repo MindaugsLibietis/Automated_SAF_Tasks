@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class bothCasesUnderOneClass extends Main {
+public class BothCasesUnderOneClass extends Main {
 
     @Test
     public void positiveLoginTest() {
@@ -17,8 +17,7 @@ public class bothCasesUnderOneClass extends Main {
             e.printStackTrace();
         }*/
         String currentUrl = driver.getCurrentUrl();
-        Assert.assertEquals(currentUrl, "https://www.saucedemo.com/inventory.html", "Login was successful");
-        System.out.println("Login successful");
+        Assert.assertEquals(currentUrl, "https://www.saucedemo.com/inventory.html", "Login was not successful");
     }
 
     @Test
@@ -28,7 +27,6 @@ public class bothCasesUnderOneClass extends Main {
         driver.findElement(By.xpath("//*[@id=\"login-button\"]")).click();
 
         String currentUrl = driver.getCurrentUrl();
-        Assert.assertEquals(currentUrl, "https://www.saucedemo.com/", "Login failed");
-        System.out.println("Login denied");
+        Assert.assertEquals(currentUrl, "https://www.saucedemo.com/", "Login with wrong password was successful");
     }
 }
