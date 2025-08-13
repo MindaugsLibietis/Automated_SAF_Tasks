@@ -23,9 +23,9 @@ public class bothCasesUnderOneClass extends Main {
 
     @Test
     public void negativeLoginTest() {
-        driver.findElement(By.id("user-name")).sendKeys("error_user");
+        driver.findElement(By.cssSelector("#user-name")).sendKeys("error_user");
         driver.findElement(By.id("password")).sendKeys("WrongPassword");
-        driver.findElement(By.id("login-button")).click();
+        driver.findElement(By.xpath("//*[@id=\"login-button\"]")).click();
 
         String currentUrl = driver.getCurrentUrl();
         Assert.assertEquals(currentUrl, "https://www.saucedemo.com/", "Login failed");
